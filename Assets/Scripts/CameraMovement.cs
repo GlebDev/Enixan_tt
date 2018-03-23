@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +11,7 @@ public class CameraMovement: MonoBehaviour{
 	private Vector2 oldPosition_M;
 
 	void LateUpdate() {
-		#if UNITY_STANDALONE || UNITY_WEBPLAYER
+		
 		if(Input.GetMouseButton(2)){
 			if(Input.GetMouseButtonDown(2)){
 				oldPosition = Input.mousePosition;
@@ -31,6 +31,7 @@ public class CameraMovement: MonoBehaviour{
 				transform.Translate(vector , Space.World);
 			}
 		}
+		#if UNITY_STANDALONE || UNITY_WEBPLAYER
 		#elif UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
 		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) {
 			Vector2 deltaPosition = Input.GetTouch(0).deltaPosition;
